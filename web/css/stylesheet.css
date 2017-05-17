@@ -1,0 +1,112 @@
+/**
+- Author: Brian Coveney
+- Date: 20/03/2017
+**/
+
+* {
+    margin-bottom: 10px;
+    list-style-type: none;
+}
+
+body {
+}
+
+#container {
+    margin: auto;
+    padding: 20px;
+    width: 50%;
+    border: 2px solid black;
+    background-color: #EEEEEE;
+}
+
+fieldset ul {
+    display: flex;
+    align-items: baseline;
+    flex-direction: column;
+}
+
+li{
+    width: 100%;
+}
+
+.submit_container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.submit_btn, .reset_btn {
+    width: 100px;
+}
+
+
+p.text{
+    display: flex;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+#footer_container {
+    display: flex;
+    justify-content: center;
+}
+
+
+
+.skid_lenghts, .skid_marks {
+    max-width: 75px;
+}
+
+.skid_marks {
+    min-width: 75px;
+    margin-left: 30px;
+}
+
+.carname_lable {
+    margin-right: 63px;
+}
+
+.carname_input {
+    width:120px;
+}
+
+.skid_lenghts {
+    margin-right: -5px;
+}
+
+
+.radio_btn {
+    margin-left: 180px;
+}
+
+input {
+    margin-left: 30px;
+}
+
+span {
+    margin-left: 10px;
+    color: #FF0000;
+}
+
+fieldset {
+    margin: auto;
+    margin-top: 10px;
+}
+
+.surface_lable {
+    margin-left: 40px;
+}
+
+
+@media (max-width: 1205px) {
+
+    #container {
+        width: 90%;
+    }
+}
+
+
+
+
+

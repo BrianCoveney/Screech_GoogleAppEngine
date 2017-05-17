@@ -1,0 +1,19 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="screech_appengine:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/screech_appengine_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="screech_appengine/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="screech_appengine" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="AppEngine API" />
+          <element id="library" level="project" name="AppEngine ORM" />
+          <element id="library" level="project" name="mysql-connector-java-5.1" />
+          <element id="library" level="project" name="Maven: mysql:mysql-connector-java:5.1.40" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
