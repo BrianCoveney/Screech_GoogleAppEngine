@@ -5,6 +5,6 @@ package controller;
  */
 public enum PersistenceMode {
 
-    MYSQL;
+    MYSQL, MONGODB;
 
 }

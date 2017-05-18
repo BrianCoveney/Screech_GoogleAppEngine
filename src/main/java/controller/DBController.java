@@ -18,6 +18,7 @@ public class DBController {
 
     private static DBController instance;
     private IPersistor persistor;
+    private PersistenceMode persistenceMode;
     private ArrayList<CarBean> carBeansList = new ArrayList<CarBean>();
 
 
@@ -42,6 +43,7 @@ public class DBController {
         }
         return instance;
     }
+
 
 
     /**

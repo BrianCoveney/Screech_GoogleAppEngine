@@ -1,3 +1,4 @@
+persistor/MYSQLPersistor.class
 model/Surface$2.class
 helpers/Const.class
 model/ICarBean.class
@@ -6,6 +7,9 @@ model/Surface.class
 model/ISurfaceType.class
 model/Surface$5.class
 model/Breaking.class
+controller/ScreechServletTest.class
+model/BreakingTest.class
+model/SkidTest.class
 model/Surface$1.class
 controller/PersistenceMode.class
 model/Surface$4.class

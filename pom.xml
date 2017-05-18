@@ -23,6 +23,29 @@
             <artifactId>mysql-connector-java</artifactId>
             <version>5.1.40</version>
         </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hamcrest</groupId>
+            <artifactId>hamcrest-library</artifactId>
+            <version>1.3</version>
+            <scope>test</scope>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.google.appengine/appengine-api-1.0-sdk -->
+        <dependency>
+            <groupId>com.google.appengine</groupId>
+            <artifactId>appengine-api-1.0-sdk</artifactId>
+            <version>1.7.6</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.cloud.sql</groupId>
+            <artifactId>mysql-socket-factory</artifactId>
+            <version>1.0.2</version>
+        </dependency>
+
     </dependencies>
 
     <reporting>
@@ -42,19 +65,45 @@
                     <compilerVersion>1.7</compilerVersion>
                 </configuration>
             </plugin>
-
-
+            <plugin>
+                <groupId>com.google.appengine</groupId>
+                <artifactId>appengine-maven-plugin</artifactId>
+                <version>1.9.9</version>
+            </plugin>
+            <plugin>
+                <groupId>com.google.cloud.tools</groupId>
+                <artifactId>appengine-maven-plugin</artifactId>
+                <version>1.2.1</version>
+            </plugin>
+            <plugin>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-maven-plugin</artifactId>
+                <version>9.3.7.v20160115</version>
+            </plugin>
 
 
 
         </plugins>
     </reporting>
 
+
+
+
+
     <properties>
         <!-- our JDK version -->
         <maven.compiler.source>1.7</maven.compiler.source>
         <maven.compiler.target>1.7</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+
+        <INSTANCE_CONNECTION_NAME>orbital-stream-167920:us-central1:myinstance</INSTANCE_CONNECTION_NAME>
+        <user>root</user>
+        <password></password>
+        <database>screech</database>
+
+
+
     </properties>
 
 </project>

@@ -8,6 +8,7 @@
 
 package persistor;
 
+import com.google.appengine.api.utils.SystemProperty;
 import controller.DBController;
 import model.CarBean;
 
@@ -45,8 +46,8 @@ public class MYSQLPersistor implements IPersistor {
     private static final String DB_NAME = "screech";
     private static final String DB_USER = "brian";
     private static final String DB_PORT = "3306";
-    private static final String DB_HOST = "localhost";
-    private static final String VPS_IP = "82.118.226.76";
+    private static final String DB_LOCAL = "localhost";
+    private static final String DB_REMOTE_NOT_GOOGLE = "82.118.226.76";
 
 
     // in MySQL on a VPS, create user and grant access to db:
@@ -58,17 +59,29 @@ public class MYSQLPersistor implements IPersistor {
 
         try {
 
-            String dbURL = "jdbc:mysql://"+VPS_IP+":"+DB_PORT+"/"+DB_NAME+"?user="+DB_USER+"&password="+DB_PASS;
 
-            this.dbConnection = DriverManager.getConnection(dbURL);
+            String url;
+
+            if(SystemProperty.environment.value() == SystemProperty.Environment.Value.Production)
+            {
+                Class.forName("com.mysql.jdbc.GoogleDriver");
+                url="jdbc:google:mysql://orbital-stream-167920:us-central1:myinstance/screech?user=root";
+                dbConnection = DriverManager.getConnection(url);
+            }
+            else {
+                Class.forName("com.mysql.jdbc.Driver");
+                url = "jdbc:mysql://"+ DB_REMOTE_NOT_GOOGLE +":"+DB_PORT+"/"+DB_NAME+"?user="+DB_USER+"&password="+DB_PASS;
+                dbConnection = DriverManager.getConnection(url);
+            }
+
 
             // test connection
             if(this.dbConnection != null) {
-                System.out.println("Connected!");
+                System.out.println("Connected to MySQL!");
             } else {
                 System.out.println("Connection Failed!");
             }
-        }catch (SQLException e) {
+        }catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -79,7 +92,7 @@ public class MYSQLPersistor implements IPersistor {
      * This method is used to loop through a list of the CarBean object,
      * then performs a MySQL insert statement, which adds values to the DB table.
      * @see DBController#saveCar() [ Method Declaration ]
-     * @param cars This is the first paramter to addNum method
+     * @param cars This is the first parameter to addNum method
      * @return Nothing.
      * @throws SQLException
      */
